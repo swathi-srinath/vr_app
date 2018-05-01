@@ -10,3 +10,5 @@ using the command gem install <gem_name>.
 
 To run the application, use
 rails s -b `hostname` -e (development/test/production)
+
+The application does not store the user details and assumes that every order has a new user. Also, the application assumes that the payment for the order happens when the order is delivered.
