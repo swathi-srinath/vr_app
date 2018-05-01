@@ -1,0 +1,23 @@
+<div class="container">
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <strong><%= @product.name %></strong>
+  </div>
+  <div class="panel-body" >
+    <p><%= @product.description %></p>
+    <p>Price per unit : AUD<%= @product.base_price %></p>
+    <%= form_for @order_item, remote: true do |f| %>
+      <div class="input-group">
+       <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+       <div class="input-group-btn">
+         <%= f.hidden_field :product_id, value: @product.id %>
+         <%= f.submit "Add to Cart", class: "btn btn-primary form-control" %>
+      </div>
+       </div>
+     <% end %>
+  </div>
+  <div class="panel-footer">
+     <%= link_to 'Back', products_path, class: "btn btn-primary" %>
+  </div>
+</div>
+</div>

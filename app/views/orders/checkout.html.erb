@@ -1,0 +1,21 @@
+<div class="container">
+<div class="row">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Checkout
+  </div>
+  <div class="panel-body">
+    <%= form_for @order do |f| %>
+     <p>Customer name: <%= f.text_field :customer_name, class: "form-control" %></p>
+     <p>Address: <%= f.text_field :address, class: "form-control" %></p>
+     <p>Email: <%= f.text_field :email, class: "form-control" %></p>
+     <p>Phone: <%= f.text_field :phone, class: "form-control" %></p>
+    <div class="input-group-btn">
+      <%= f.hidden_field :order_status, value: "Done" %>
+      <%= f.submit "Order", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>

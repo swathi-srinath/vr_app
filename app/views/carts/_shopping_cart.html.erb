@@ -1,0 +1,35 @@
+<% if !@order_item.nil? && @order_item.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      Error!
+    </div>
+    <div class="panel-body">
+      <ul>
+        <% @order_item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+         <% end %>
+      </ul>
+     </div>
+  </div>
+<% end %>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Shopping Cart
+  </div>
+  <div class="panel-body">
+    <% if @order_items.size == 0 %>
+      <p> Sorry!! There are no items in the cart. Please go back to page and add products to the cart </p>
+    <% else %>
+      <% @order_items.each do |order_item| %>
+        <%= render 'carts/product_table', product: order_item.product, order_item: order_item %>
+      <% end %>
+      <p class="text-right">Shipping Cost: AUD <%= @order.shipping_cost %></p>
+            
+      <p class="text-right">Discount(%):  <%=((1- @order.discount).round(1)) * 100 %></p> 
+      <p class="text-right">Total Amount: AUD <%= @order.sub_total*@order.discount + @order.shipping_cost %></p>
+   </div>
+   <div class="panel-footer">
+     <%= button_to 'Checkout', checkout_path, method: :get %>
+   </div>
+   <% end %>
+</div>
