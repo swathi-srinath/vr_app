@@ -1,24 +1,12 @@
-# README
+This a simple VR cardboard store the sell vr cardboard headsets, coded in Ruby on Rails.
+To run the application, you may want to install the following gems:
+1. mysql2 - (Make sure you have the mysql database up and running)
+2. webpacker
+3.react-rails
+4.bootstap
+5.jquery-rails
+ 
+using the command gem install <gem_name>.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run the application, use
+rails s -b `hostname` -e (development/test/production)
